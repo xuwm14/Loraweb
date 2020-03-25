@@ -10,7 +10,8 @@ import logo from '../assets/logo.svg';
 
 const copyright = (
   <Fragment>
-    Copyright <Icon type="copyright" /> 2018 清华大学软件学院出品
+    Contact Us: jiliangwang@tsinghua.edu.cn <br />
+    <a href="http://www.miit.gov.cn/"> 京ICP备18048670号 </a>
   </Fragment>
 );
 
@@ -31,25 +32,25 @@ class UserLayout extends React.PureComponent {
     return (
       // @TODO <DocumentTitle title={this.getPageTitle()}>
       <React.Fragment>
-        <DocumentTitle title={"LoRa TestBed Platform"} />
-          <div className={styles.container}>
-            <div className={styles.lang}>
-              <SelectLang />
-            </div>
-            <div className={styles.content}>
-              <div className={styles.top}>
-                <div className={styles.header}>
-                  <Link to="/">
-                    <img alt="logo" className={styles.logo} src={logo} />
-                    <span className={styles.title}>LoRa TestBed Platform</span>
-                  </Link>
-                </div>
-                <div className={styles.desc}>LoRa TestBed Platform 是清华大学软件学院开发的开放式LoRa测试平台</div>
-              </div>
-              {children}
-            </div>
-            <GlobalFooter copyright={copyright} />
+        <DocumentTitle title={'Online LPWAN Testbed'} />
+        <div className={styles.container}>
+          <div className={styles.lang}>
+            <SelectLang />
           </div>
+          <div className={styles.content}>
+            <div className={styles.top}>
+              <div className={styles.header}>
+                <Link to="/">
+                  <img alt="logo" className={styles.logo} src={logo} />
+                  <span className={styles.title}>Online LPWAN Testbed</span>
+                </Link>
+              </div>
+              <div className={styles.desc}>低功耗广域网在线测试平台</div>
+            </div>
+            {children}
+          </div>
+          <GlobalFooter copyright={copyright} />
+        </div>
       </React.Fragment>
     );
   }

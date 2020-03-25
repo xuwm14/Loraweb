@@ -48,10 +48,10 @@ class LoginPage extends Component {
       $.ajax({
         // async: false,
         type: 'post',
-        url: server_url + '/login', 
-        data: values, 
+        url: server_url + '/login',
+        data: values,
         xhrFields: {
-          withCredentials: true
+          withCredentials: true,
         },
         crossDomain: true,
         success: data => {
@@ -59,30 +59,30 @@ class LoginPage extends Component {
           data = JSON.parse(data);
           if (data.code == 1) {
             if (data.user_type == 3) {
-              rlt.currentAuthority = "admin";
+              rlt.currentAuthority = 'admin';
               rlt.status = true;
               rlt.username = values.username;
               rlt.type = 1;
             } else {
-              rlt.currentAuthority = "user";
+              rlt.currentAuthority = 'user';
               rlt.status = true;
               rlt.username = values.username;
               rlt.type = 1;
             }
             dispatch({
               type: 'login/login',
-              payload: rlt
+              payload: rlt,
             });
           } else {
-            alert("用户名或密码不正确！");
-            rlt.currentAuthority = "guest";
+            alert('用户名或密码不正确！');
+            rlt.currentAuthority = 'guest';
             rlt.status = true;
-            rlt.username = "游客";
+            rlt.username = '游客';
             rlt.type = 1;
           }
-          localStorage.setItem("user_data", JSON.stringify(rlt));
-        }
-      })
+          localStorage.setItem('user_data', JSON.stringify(rlt));
+        },
+      });
     }
   };
 
@@ -117,7 +117,7 @@ class LoginPage extends Component {
             <UserName name="username" placeholder="username" />
             <Password
               name="password"
-              placeholder="888888"
+              placeholder="password"
               onPressEnter={() => this.loginForm.validateFields(this.handleSubmit)}
             />
           </div>
@@ -129,7 +129,7 @@ class LoginPage extends Component {
               <FormattedMessage id="app.login.signup" />
             </a>
           </div>
-          <Submit loading={ submitting }>
+          <Submit loading={submitting}>
             <FormattedMessage id="app.login.login" />
           </Submit>
         </Login>
